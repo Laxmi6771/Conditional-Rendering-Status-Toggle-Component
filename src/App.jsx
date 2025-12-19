@@ -1,9 +1,19 @@
-import Counter from "./Counter";
+import { useState } from "react";
+import ComponentA from "./ComponentA";
+import ComponentB from "./ComponentB";
 
 function App() {
+  const [status, setStatus] = useState(false);
+
   return (
-    <div>
-      <Counter />
+    <div style={{ padding: "20px" }}>
+      <button onClick={() => setStatus(!status)}>
+        Toggle Status
+      </button>
+
+      <br /><br />
+
+      {status ? <ComponentA /> : <ComponentB />}
     </div>
   );
 }
